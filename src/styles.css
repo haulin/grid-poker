@@ -1,0 +1,260 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 400;
+  height: 100%;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+/* total width: 38em */
+@media (min-width: 450px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media (min-width: 495px) {
+  :root {
+    font-size: 13px;
+  }
+}
+@media (min-width: 520px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media (min-width: 548px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media (min-width: 584px) {
+  :root {
+    font-size: 16px;
+  }
+}
+[hidden] {
+  display: none !important;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  background-image: linear-gradient(135deg, #315, #111);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.action-button {
+  padding: 0;
+}
+.action-button svg {
+  display: block;
+  height: 4em;
+  width: auto;
+}
+
+.board-wrap {
+  display: grid;
+  grid-template-areas:
+    'h h h h h .'
+    'b b b b b .'
+    'b b b b b .'
+    'b b b b b .'
+    'b b b b b .'
+    'b b b b b .'
+    '. . . . . .';
+  margin: 1em;
+}
+.board {
+  display: grid;
+  gap: 0.5em;
+  grid-area: b;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  list-style-type: none;
+  padding: 0;
+}
+.board__header {
+  grid-area: h;
+}
+.board__score {
+  align-items: center;
+  align-self: center;
+  border-radius: 2em;
+  display: flex;
+  height: 5em;
+  justify-content: center;
+  justify-self: center;
+  width: 5em;
+}
+.board__score:nth-child(2) {
+  bottom: -2em;
+  position: relative;
+  left: -1em;
+}
+.board__score:nth-child(13) {
+  position: relative;
+  left: -1em;
+  top: -2em;
+}
+.board__tile {
+  align-items: center;
+  border: 1px solid #fff4;
+  border-radius: 0.75em;
+  display: flex;
+  height: 7.5em;
+  justify-content: center;
+  width: 5.5em;
+}
+.board__tile:hover {
+  border-color: #fff8;
+}
+
+.card {
+  align-items: center;
+  background-image: linear-gradient(to bottom, #222, #000);
+  border: 1px solid #888;
+  border-top-color: #bbb;
+  border-bottom-color: #666;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  height: 7em;
+  justify-content: center;
+  padding: 0;
+  user-select: none;
+  width: 5em;
+}
+.card--deck {
+  box-shadow: 1px 1px #000, 2px 2px #888, 3px 3px #000, 4px 4px #888;
+  margin-left: auto;
+  margin-bottom: 0.7em;
+}
+.card--black path {
+  fill: #777;
+}
+.card--red path {
+  fill: #d02;
+}
+.card__face {
+  font-size: 1.5em;
+}
+.card__suit {
+  display: grid;
+  font-size: 3em;
+  line-height: 0.6;
+}
+.card__suit svg {
+  grid-column: 1;
+  grid-row: 1;
+  height: 0.75em;
+  width: auto;
+}
+.card__suit--shine {
+  grid-column: 1;
+  grid-row: 1;
+  height: 100%;
+  overflow: hidden;
+  width: 50%;
+}
+.card__suit--shine path {
+  fill: #fff3;
+}
+
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 1em;
+  padding: 0;
+}
+.deck > * {
+  margin: 0.5em;
+}
+
+header {
+  background: #fff1;
+  border-bottom: 1px solid #fff4;
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+}
+
+.sidebar {
+  align-items: center;
+  background: #fff1;
+  border-radius: 1em;
+  display: flex;
+  gap: 1em;
+  margin: 1em 1em -5em 1em;
+  padding: 1em 1.5em;
+  position: relative;
+  width: 29.5em;
+  z-index: 1;
+}
+
+.table {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+}
